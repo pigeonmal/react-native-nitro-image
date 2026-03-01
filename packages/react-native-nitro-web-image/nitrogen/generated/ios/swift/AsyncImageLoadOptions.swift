@@ -18,7 +18,7 @@ public extension AsyncImageLoadOptions {
   /**
    * Create a new instance of `AsyncImageLoadOptions`.
    */
-  init(priority: AsyncImagePriority?, forceRefresh: Bool?, cacheKey: String?, continueInBackground: Bool?, allowInvalidSSLCertificates: Bool?, scaleDownLargeImages: Bool?, queryMemoryDataSync: Bool?, queryDiskDataSync: Bool?, decodeImage: Bool?, allowHardware: Bool?) {
+  init(priority: AsyncImagePriority?, forceRefresh: Bool?, cacheKey: String?, continueInBackground: Bool?, allowInvalidSSLCertificates: Bool?, scaleDownLargeImages: Bool?, queryMemoryDataSync: Bool?, queryDiskDataSync: Bool?, decodeImage: Bool?, allowHardware: Bool?, blurRadius: Double?) {
     self.init({ () -> bridge.std__optional_AsyncImagePriority_ in
       if let __unwrappedValue = priority {
         return bridge.create_std__optional_AsyncImagePriority_(__unwrappedValue)
@@ -76,6 +76,12 @@ public extension AsyncImageLoadOptions {
     }(), { () -> bridge.std__optional_bool_ in
       if let __unwrappedValue = allowHardware {
         return bridge.create_std__optional_bool_(__unwrappedValue)
+      } else {
+        return .init()
+      }
+    }(), { () -> bridge.std__optional_double_ in
+      if let __unwrappedValue = blurRadius {
+        return bridge.create_std__optional_double_(__unwrappedValue)
       } else {
         return .init()
       }
@@ -188,6 +194,18 @@ public extension AsyncImageLoadOptions {
     return { () -> Bool? in
       if bridge.has_value_std__optional_bool_(self.__allowHardware) {
         let __unwrapped = bridge.get_std__optional_bool_(self.__allowHardware)
+        return __unwrapped
+      } else {
+        return nil
+      }
+    }()
+  }
+  
+  @inline(__always)
+  var blurRadius: Double? {
+    return { () -> Double? in
+      if bridge.has_value_std__optional_double_(self.__blurRadius) {
+        let __unwrapped = bridge.get_std__optional_double_(self.__blurRadius)
         return __unwrapped
       } else {
         return nil

@@ -9,10 +9,12 @@ import com.margelo.nitro.image.HybridImageSpec
 import com.margelo.nitro.image.HybridImageLoaderSpec
 import com.margelo.nitro.image.HybridNitroImageViewSpec
 
-class HybridWebImageLoader(private val imageLoader: ImageLoader,
-                           private val url: String,
-                           private val options: AsyncImageLoadOptions?,
-                           private val context: Context) : HybridImageLoaderSpec() {
+class HybridWebImageLoader(
+    private val imageLoader: ImageLoader,
+    private val url: String,
+    private val options: AsyncImageLoadOptions?,
+    private val context: Context
+) : HybridImageLoaderSpec() {
     override fun loadImage(): Promise<HybridImageSpec> {
         return imageLoader.loadImageAsync(url, options, context)
     }
@@ -21,7 +23,7 @@ class HybridWebImageLoader(private val imageLoader: ImageLoader,
         val imageView = forView.view as? ImageView ?: return
 
         imageView.load(url, imageLoader) {
-            this.applyOptions(options)
+            this.applyOptions(context, options)
         }
     }
 

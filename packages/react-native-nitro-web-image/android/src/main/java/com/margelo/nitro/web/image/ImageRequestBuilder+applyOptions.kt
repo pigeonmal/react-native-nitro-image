@@ -1,14 +1,20 @@
 package com.margelo.nitro.web.image
 
+import android.content.Context
 import coil3.annotation.ExperimentalCoilApi
 import coil3.decode.BlackholeDecoder
 import coil3.request.CachePolicy
 import coil3.request.ImageRequest
 import coil3.request.allowHardware
+import coil3.request.transformations
 import coil3.size.Precision
 
+
 @OptIn(ExperimentalCoilApi::class)
-fun ImageRequest.Builder.applyOptions(options: AsyncImageLoadOptions?): ImageRequest.Builder {
+fun ImageRequest.Builder.applyOptions(
+    ctx: Context,
+    options: AsyncImageLoadOptions?
+): ImageRequest.Builder {
     if (options == null) return this
     var result = this
 
@@ -58,6 +64,16 @@ fun ImageRequest.Builder.applyOptions(options: AsyncImageLoadOptions?): ImageReq
 
     if (options.allowHardware != null) {
         result = result.allowHardware(options.allowHardware)
+    }
+
+    if (options.blurRadius != null) {
+        result = result.transformations(
+            BlurTransformation(
+                context = ctx,
+                radius = options.blurRadius.toFloat(),
+                sampling = 3f
+            )
+        )
     }
 
     return result

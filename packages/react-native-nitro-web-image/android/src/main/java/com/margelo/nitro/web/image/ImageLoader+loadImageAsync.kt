@@ -9,13 +9,15 @@ import com.margelo.nitro.core.Promise
 import com.margelo.nitro.image.HybridImage
 import com.margelo.nitro.image.HybridImageSpec
 
-suspend fun ImageLoader.loadCoilImageAsync(url: String,
-                                           options: AsyncImageLoadOptions?,
-                                           context: Context): Image {
+suspend fun ImageLoader.loadCoilImageAsync(
+    url: String,
+    options: AsyncImageLoadOptions?,
+    context: Context
+): Image {
     // 1. Create the Coil Request
     val request = ImageRequest.Builder(context)
         .data(url)
-        .applyOptions(options)
+        .applyOptions(context, options)
         .build()
     // 2. Execute it (async)
     val result = this.execute(request)
@@ -23,9 +25,10 @@ suspend fun ImageLoader.loadCoilImageAsync(url: String,
     return image
 }
 
-fun ImageLoader.loadImageAsync(url: String,
-                               options: AsyncImageLoadOptions?,
-                               context: Context
+fun ImageLoader.loadImageAsync(
+    url: String,
+    options: AsyncImageLoadOptions?,
+    context: Context
 ): Promise<HybridImageSpec> {
     return Promise.async {
         // 1. Load the coil image
