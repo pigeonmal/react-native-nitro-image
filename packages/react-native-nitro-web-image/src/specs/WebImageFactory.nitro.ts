@@ -1,4 +1,4 @@
-import type { Image, ImageLoader } from 'react-native-nitro-image';
+import type { Image, ImageLoader } from '@pigeonmal/react-native-nitro-image';
 import type { HybridObject } from 'react-native-nitro-modules';
 
 export type AsyncImagePriority = 'low' | 'default' | 'high';

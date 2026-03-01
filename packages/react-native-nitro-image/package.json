@@ -1,6 +1,6 @@
 {
-  "name": "react-native-nitro-image",
-  "version": "0.12.0",
+  "name": "@pigeonmal/react-native-nitro-image",
+  "version": "0.12.1",
   "description": "A superfast in-memory Image type and view component for React Native, built with Nitro!",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -54,7 +54,8 @@
   },
   "homepage": "https://github.com/mrousavy/react-native-nitro-image#readme",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "devDependencies": {
     "@types/react": "^19.0.6",

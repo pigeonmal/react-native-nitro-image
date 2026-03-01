@@ -1,10 +1,10 @@
-import { useMemo } from 'react'
-import { FlatList, StyleSheet, Text, View } from 'react-native'
-import { NitroImage } from 'react-native-nitro-image'
-import { createImageURLs } from './createImageURLs'
+import { NitroImage } from '@pigeonmal/react-native-nitro-image';
+import { useMemo } from 'react';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { createImageURLs } from './createImageURLs';
 
 export function NitroImageTab() {
-  const imageURLs = useMemo(() => createImageURLs(), [])
+  const imageURLs = useMemo(() => createImageURLs(), []);
 
   return (
     <View>
@@ -22,7 +22,7 @@ export function NitroImageTab() {
         )}
       />
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
     width: '25%',
     aspectRatio: 1,
   },
-})
+});

@@ -1,9 +1,9 @@
-import { useState } from 'react'
-import { StyleSheet, TextInput, View } from 'react-native'
-import { NitroImage } from 'react-native-nitro-image'
+import { NitroImage } from '@pigeonmal/react-native-nitro-image';
+import { useState } from 'react';
+import { StyleSheet, TextInput, View } from 'react-native';
 
 export function EmptyTab() {
-  const [value, setValue] = useState('https://picsum.photos/seed/123/600')
+  const [value, setValue] = useState('https://picsum.photos/seed/123/600');
 
   return (
     <View style={styles.container}>
@@ -15,7 +15,7 @@ export function EmptyTab() {
       />
       <NitroImage image={{ url: value }} style={styles.image} />
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -39,4 +39,4 @@ const styles = StyleSheet.create({
     backgroundColor: 'grey',
     marginTop: 15,
   },
-})
+});

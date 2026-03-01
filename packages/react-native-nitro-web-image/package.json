@@ -68,7 +68,7 @@
     "react": "*",
     "react-native": "*",
     "react-native-nitro-modules": "*",
-    "react-native-nitro-image": "*"
+    "@pigeonmal/react-native-nitro-image": "*"
   },
   "react-native-builder-bob": {
     "source": "src",
