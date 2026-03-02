@@ -1,6 +1,6 @@
 {
   "name": "@pigeonmal/react-native-nitro-web-image",
-  "version": "0.12.1",
+  "version": "0.12.2",
   "description": "A superfast in-memory Image type and view component for React Native Web, built with Nitro!",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
