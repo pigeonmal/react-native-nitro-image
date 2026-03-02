@@ -53,7 +53,7 @@
   },
   "homepage": "https://github.com/mrousavy/react-native-nitro-image#readme",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
+    "registry": "https://npm.pkg.github.com",
     "access": "public"
   },
   "devDependencies": {
